@@ -1,0 +1,32 @@
+{% extends 'acc/main.html' %}
+{% block content %}
+
+<div class="col-md-7">
+    <h2>Select your workers</h2>
+    <br>
+    <div class="card card-body">
+
+        <table class="table table-sm">
+            <form action="" method="POST">
+                {% csrf_token %}
+                    
+                {{work.Domestic}}
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                
+                <input class="btn btn-primary" type="submit" value="Continue">
+            </form>
+
+        </table>
+    </div>
+</div>
+
+
+{% endblock %}
