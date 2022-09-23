@@ -67,6 +67,9 @@ def domestic(request):
 def location(request):
     return render(request,'acc/location.html')
 
+def workerlogin(request):
+    return render(request,'acc/worker_login.html')
+
 
     
 
