@@ -1,0 +1,63 @@
+{% extends 'acc/main1.html' %}
+{% block content %}
+<br>
+<div class="row">
+    <div class="col-md">
+        <div class="card card-body">
+            <h5></h5>
+            <br>
+            <a class="btn btn- btn-warning" href="{% url 'search' cust_uid %}">Place Order</a>
+        </div>
+    </div>
+    <div class="col-md-5">
+        <div class="card card-body bg-info text-white">
+        <h5 style="color:rgb(93, 245, 6)"><center>Total Number of Bookings</center></h5>
+        <br>
+        <p><b><center>{{total_count}}</center></b></p>   
+        </div>
+        <div class="card card-body bg-danger
+         text-white">
+            <h5 style="color:rgb(93, 245, 6)"><center>Pending Work</center></h5>
+            <br>
+            <p><b><center>{{total_count}}</center></b></p>
+    </div>
+    </div>
+
+    <div class="col-md-12">
+        <h5>MY ORDERS</h5>
+        <br>
+        <div class="card card-body">
+          
+            <table class="table table-sm">
+                <tr>
+                    <th>worker Name</th>
+                    <th>Date Orderd</th>
+                    <th>Type of worker</th>
+                    <th>Status</th>
+                </tr>
+                {% for i in orders %}
+                    <tr>
+                    <td>{{i.uid}}</td>
+                    <td>{{i.date_created}}</td>
+                    <td>{{i.Domestic}}</td>
+                    <td>{{i.status}}</td>
+                    <tr>
+                {% endfor %}
+                
+                
+                
+
+            </table>
+        </div>
+    </div>
+    </div>
+
+
+
+
+
+
+
+
+
+{% endblock %}

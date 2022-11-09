@@ -1,24 +1,83 @@
-{% extends 'acc/main.html' %}
+{% extends 'acc/main1.html' %}
 {% block content %}
-<div class="card">
-    <div class="card-header">
-      <h2>My location is</h2>
-    </div>
-    <div class="card-body">
-    <div class="card"><label>Address</label>
-      <input type="text" name="location" id="loc" placeholder="Enter your Address"></div>
-      <div class="card"><label>City/Village</label>
-      <input type="text" name="City" id="city" placeholder="Enter Your city"></div>
-      <div class="card"><label>Pincode</label>
-      <input type="text" name="pincode" id="city" placeholder="Pincode"></div>
-      
 
-      
-      </div>
+<div class="details">
+<h2></h2>
+<div class="card card-body">
+  <table class="table table-sm">
+<form action="" method="POST">
+  {% csrf_token %}
+  <!-- <label><b>for:</b></label>
+  {{emp.Domestic}} -->
 
-      <div>
-      <a href="#" class="btn btn-primary">Back</a>
-      <a href="#" class="btn btn-primary">Next</a></div>
-    </div>
+  <br>
+<div>
+  <label><b>Pincode:</b></label>
+   {{emp.pincode}} 
+   <input class="btn btn-primary" type="submit" value="submit">
   </div>
+  <br>
+  <div class="address">
+    <p><b>Location:    </b>{{res}}</p>
+    </div>
+  
+</form>
+<!-- <label><b>Address:</b></label>
+<input type="text" id="searchTextField"  class="form-control" value={{res}}> -->
+</div>
+</div>
+
+
+  </table>
+
+  
+  <!-- <script>
+    let places,input,address,city;
+    google.maps.event.addDomListener(window,"load", function (){
+      var places = new google.maps.places.Autocomplete(
+        document.getElementById("searchTextField")
+      )
+
+      google.maps.event.addListener(places, "place_changed", function(){
+        consol.log(places.getplaces())
+      })
+
+    });
+  </script> -->
+  
+  <div class="row">
+    <div class="col-md">
+    <div class="card card-body">
+        <center><h5>{{workers_count}} Worker available near by you</h5></center>
+    </div>
+    <div class="card -card-body">
+        <table class="table">
+            <tr>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Profession</th>
+                <th>Address</th>
+                <th>Phone</th>
+                <th>Book</th>
+            </tr>
+            {% for i in result %}
+            <tr>
+            <td>{{i.name}}</td>
+            <td>{{i.gender}}</td>
+            <td>{{i.profession}}</td>
+            <td>{{i.permanent_add}}</td>
+            <td>{{i.phone}}</td>
+            <td><a class="btn btn-sm btn-success" href="{% url 'application_form' cust_uid i.uid %}">Book</a></td>
+            </tr>
+            {% endfor %}
+            
+                
+            
+        </table>
+    </div>
+    </div>
+</div>
+
+ 
   {% endblock %}
+  

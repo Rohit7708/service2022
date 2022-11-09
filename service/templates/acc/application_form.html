@@ -1,0 +1,47 @@
+{% extends 'acc/main1.html' %}
+{% block content %}
+<form action="" method="POST">
+{% csrf_token %}
+<div class="card">
+    <h2><center>Fill the details</center></h2>
+    <div class="card">
+        <label for=""><b>Name of the customer</b></label>
+        <input type="text" name="cust_uid" id="cust_uid" value="{{username}}">
+
+     
+        <label for=""><b>Permanant Adress</b></label>
+        {{form.address}}
+        
+        
+        
+        <label for=""><b>Village/City</b></label>
+        {{form.city}}
+        <label for=""><b>Pincode</b></label>
+        {{form.pincode}}
+      
+        </div>
+       
+        <label><b>Phone number:</b></label>
+        {{form.phone}}
+        <label for=""><b>Service Provider Name</b></label>
+        <input type="text" name="uid" id="uid" value="{{ser_username}}">
+        <div>
+        <a href="#" class="btn btn-warning btn-lg">Back</a>
+        <div class="nxtbtn"><input class="btn btn-primary btn-lg" type="submit" name="Submit"></div>
+        </div>
+
+    
+        
+    </div>
+</div>
+</form>
+<style>
+    .nxtbtn{
+        margin-left: 90%;
+        margin-top: -3%;
+    }
+</style>
+
+
+    
+{% endblock %}
